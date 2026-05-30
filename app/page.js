@@ -181,10 +181,6 @@ export default function Home() {
           flex: 1;
           min-width: 180px;
         }
-        .price-card.featured {
-          border-color: #c8f060;
-          background: rgba(200,240,96,0.05);
-        }
         #chat-scroll-box::-webkit-scrollbar { display: none; }
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
@@ -335,12 +331,11 @@ export default function Home() {
         </div>
         <div className="pricing-grid" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           {[
-            { name: "Gratuit", price: "0€", period: "/mois", feats: ["50 réponses / mois", "1 assistant", "Widget sur votre site"], featured: false },
-            { name: "Starter", price: "19€", period: "/mois", feats: ["500 réponses / mois", "1 assistant personnalisé", "Dashboard des conversations", "Support email"], featured: true },
-            { name: "Pro", price: "39€", period: "/mois", feats: ["Réponses illimitées", "3 assistants", "Personnalisation avancée", "Support prioritaire"], featured: false },
+            { name: "Gratuit", price: "0€", period: "/mois", feats: ["50 réponses / mois", "1 assistant", "Widget sur votre site"] },
+            { name: "Starter", price: "19€", period: "/mois", feats: ["500 réponses / mois", "1 assistant personnalisé", "Dashboard des conversations", "Support email"] },
+            { name: "Pro", price: "39€", period: "/mois", feats: ["Réponses illimitées", "3 assistants", "Personnalisation avancée", "Support prioritaire"] },
           ].map((p) => (
-            <div key={p.name} className={`price-card${p.featured ? " featured" : ""}`}>
-              {p.featured && <div style={{ fontSize: "11px", color: "#c8f060", fontWeight: 500, marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.5px" }}>● Populaire</div>}
+            <div key={p.name} className="price-card">
               <div style={{ fontSize: "15px", fontWeight: 500, marginBottom: "0.25rem" }}>{p.name}</div>
               <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "30px", fontWeight: 800, marginBottom: "1rem" }}>
                 {p.price}<span style={{ fontSize: "14px", fontWeight: 400, color: "rgba(240,239,232,0.45)" }}>{p.period}</span>
